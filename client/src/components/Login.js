@@ -16,11 +16,11 @@ function Login() {
       // console.log(localStorage.getItem("email"));
       // console.log(localStorage.getItem("passWord"));
 
-      if(localStorage.getItem("email")&&localStorage.getItem("passWord")){
-        emailInputRef.current.value=localStorage.getItem("email");
-        passWordInputRef.current.value=localStorage.getItem("passWord");
-        validateLoginFromServer();
-      }
+      // if(localStorage.getItem("email")&&localStorage.getItem("passWord")){
+      //   emailInputRef.current.value=localStorage.getItem("email");
+      //   passWordInputRef.current.value=localStorage.getItem("passWord");
+      //   validateLoginFromServer();
+      // }
       },[]);
       
       let validateTokenFromServer=async()=>{
@@ -46,7 +46,37 @@ function Login() {
         }   
       }
 
-     let validateLoginFromServer=async()=>{
+    //  let validateLoginFromServer=async()=>{
+    //   let dataToSend=new FormData();
+    //    dataToSend.append("email",emailInputRef.current.value);
+    //    dataToSend.append("passWord",passWordInputRef.current.value);
+       
+    //    let reqOptions={
+    //     method:"POST",
+    //     body:dataToSend,
+    //    }
+
+    //   let JSONData= await fetch("/validateLogin",reqOptions);
+    //     let JSOData=await JSONData.json();
+
+    //   if(JSOData.status==="Failure"){
+    //      alert(JSOData.msg);  
+    //   }else{
+    //     // localStorage.setItem("email",emailInputRef.current.value);
+    //     // localStorage.setItem("passWord",passWordInputRef.current.value);
+
+    //     localStorage.setItem("token",JSOData.token);
+        
+    //     console.log(JSOData);
+
+    //     dispatch({type:"login",data:JSOData.data[0]});
+    //     navigate("/home");
+    //   }
+    //    };
+
+   let validateLogin=()=>{
+
+    return async ()=>{
       let dataToSend=new FormData();
        dataToSend.append("email",emailInputRef.current.value);
        dataToSend.append("passWord",passWordInputRef.current.value);
@@ -62,45 +92,15 @@ function Login() {
       if(JSOData.status==="Failure"){
          alert(JSOData.msg);  
       }else{
-        // localStorage.setItem("email",emailInputRef.current.value);
-        // localStorage.setItem("passWord",passWordInputRef.current.value);
-
+        
         localStorage.setItem("token",JSOData.token);
         
         console.log(JSOData);
 
-        dispatch({type:"login",data:JSOData.data[0]});
-        navigate("/home");
+        dispatch({type:"login",data:JSOData.data[0]})
+        navigate("/home")
       }
-       };
-
-  //  let validateLogin=()=>{
-
-  //   return async ()=>{
-  //     let dataToSend=new FormData();
-  //      dataToSend.append("email",emailInputRef.current.value);
-  //      dataToSend.append("passWord",passWordInputRef.current.value);
-       
-  //      let reqOptions={
-  //       method:"POST",
-  //       body:dataToSend,
-  //      }
-
-  //     let JSONData= await fetch("/validateLogin",reqOptions);
-  //       let JSOData=await JSONData.json();
-
-  //     if(JSOData.status==="Failure"){
-  //        alert(JSOData.msg);  
-  //     }else{
-        
-  //       localStorage.setItem("token",JSOData.token);
-        
-  //       console.log(JSOData);
-
-  //       dispatch({type:"login",data:JSOData.data[0]})
-  //       navigate("/home")
-  //     }
-  //   }};
+    }};
 
   return (
     <div className='App'>
@@ -115,9 +115,9 @@ function Login() {
             <div>
                 <button type="button"
                 onClick={()=>{
-                  validateLoginFromServer();
+                  // validateLoginFromServer();
 
-                  //  dispatch(validateLogin()); 
+                   dispatch(validateLogin()); 
                   }}
                 >Login</button>
             </div>
