@@ -74,33 +74,33 @@ function Login() {
       }
        };
 
-   let validateLogin=()=>{
+  //  let validateLogin=()=>{
 
-    return async ()=>{
-      let dataToSend=new FormData();
-       dataToSend.append("email",emailInputRef.current.value);
-       dataToSend.append("passWord",passWordInputRef.current.value);
+  //   return async ()=>{
+  //     let dataToSend=new FormData();
+  //      dataToSend.append("email",emailInputRef.current.value);
+  //      dataToSend.append("passWord",passWordInputRef.current.value);
        
-       let reqOptions={
-        method:"POST",
-        body:dataToSend,
-       }
+  //      let reqOptions={
+  //       method:"POST",
+  //       body:dataToSend,
+  //      }
 
-      let JSONData= await fetch("/validateLogin",reqOptions);
-        let JSOData=await JSONData.json();
+  //     let JSONData= await fetch("/validateLogin",reqOptions);
+  //       let JSOData=await JSONData.json();
 
-      if(JSOData.status==="Failure"){
-         alert(JSOData.msg);  
-      }else{
+  //     if(JSOData.status==="Failure"){
+  //        alert(JSOData.msg);  
+  //     }else{
         
-        localStorage.setItem("token",JSOData.token);
+  //       localStorage.setItem("token",JSOData.token);
         
-        console.log(JSOData);
+  //       console.log(JSOData);
 
-        dispatch({type:"login",data:JSOData.data[0]})
-        navigate("/home")
-      }
-    }};
+  //       dispatch({type:"login",data:JSOData.data[0]})
+  //       navigate("/home")
+  //     }
+  //   }};
 
   return (
     <div className='App'>
