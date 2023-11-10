@@ -19,7 +19,7 @@ function Login() {
       // if(localStorage.getItem("email")&&localStorage.getItem("passWord")){
       //   emailInputRef.current.value=localStorage.getItem("email");
       //   passWordInputRef.current.value=localStorage.getItem("passWord");
-        // validateLoginFromServer();
+      //   validateLoginFromServer();
       // }
       },[]);
       
@@ -33,7 +33,7 @@ function Login() {
             method:"POST",
             body:dataToSend,
           };
-          let JSONData=await fetch("http://localhost:1111/validateToken",reqOptions)
+          let JSONData=await fetch("/validateToken",reqOptions)
           let JSOData=await JSONData.json();
   
           if(JSOData.status==="Failure"){
@@ -56,7 +56,7 @@ function Login() {
         body:dataToSend,
        }
 
-      let JSONData= await fetch("http://localhost:1111/validateLogin",reqOptions);
+      let JSONData= await fetch("/validateLogin",reqOptions);
         let JSOData=await JSONData.json();
 
       if(JSOData.status==="Failure"){
@@ -86,7 +86,7 @@ function Login() {
         body:dataToSend,
        }
 
-      let JSONData= await fetch("http://localhost:1111/validateLogin",reqOptions);
+      let JSONData= await fetch("/validateLogin",reqOptions);
         let JSOData=await JSONData.json();
 
       if(JSOData.status==="Failure"){
@@ -115,7 +115,7 @@ function Login() {
             <div>
                 <button type="button"
                 onClick={()=>{
-                  validateLoginFromServer();
+                  // validateLoginFromServer();
 
                    dispatch(validateLogin()); 
                   }}

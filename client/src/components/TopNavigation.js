@@ -17,7 +17,7 @@ function TopNavigation() {
 
 let deleteUserFromServer=async()=>{
 
-   let url=`http://localhost:1111/deleteUser?email=${storeObj.userReducer.loginDetails.email}`
+   let url=`/deleteUser?email=${storeObj.userReducer.loginDetails.email}`
 
    let reqOptions={
     method:"DELETE",

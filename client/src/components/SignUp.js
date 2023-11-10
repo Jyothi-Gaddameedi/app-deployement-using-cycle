@@ -26,7 +26,7 @@ let sendSignUpDataToServerFormData=async()=>{
       body:dataToSend,
   };
 
-  let JSONData=await fetch("http://localhost:1111/signup",reqOptions);
+  let JSONData=await fetch("",reqOptions);
   let JSOData=await JSONData.json();
 
   alert(JSOData.msg);
