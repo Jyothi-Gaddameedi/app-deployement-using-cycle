@@ -16,11 +16,11 @@ function Login() {
       // console.log(localStorage.getItem("email"));
       // console.log(localStorage.getItem("passWord"));
 
-      // if(localStorage.getItem("email")&&localStorage.getItem("passWord")){
-      //   emailInputRef.current.value=localStorage.getItem("email");
-      //   passWordInputRef.current.value=localStorage.getItem("passWord");
-      //   validateLoginFromServer();
-      // }
+      if(localStorage.getItem("email")&&localStorage.getItem("passWord")){
+        emailInputRef.current.value=localStorage.getItem("email");
+        passWordInputRef.current.value=localStorage.getItem("passWord");
+        validateLoginFromServer();
+      }
       },[]);
       
       let validateTokenFromServer=async()=>{
@@ -115,9 +115,9 @@ function Login() {
             <div>
                 <button type="button"
                 onClick={()=>{
-                  // validateLoginFromServer();
+                  validateLoginFromServer();
 
-                   dispatch(validateLogin()); 
+                  //  dispatch(validateLogin()); 
                   }}
                 >Login</button>
             </div>
