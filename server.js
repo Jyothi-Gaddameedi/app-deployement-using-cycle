@@ -5,6 +5,7 @@ const multer=require("multer");
 const jwt=require("jsonwebtoken");
 const bcrypt=require("bcrypt");
 const dotenv=require("dotenv");
+const path=require("path");
 
 dotenv.config();
 let app=express();
@@ -23,6 +24,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
   app.use('/uploads', express.static('uploads'));
+  app.use(express.static(path.join(__dirname,"./client/build")));
 
 let connectedToDB=async()=>{
   try{
