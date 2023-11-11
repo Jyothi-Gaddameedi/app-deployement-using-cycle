@@ -16,11 +16,11 @@ let storeObj=useSelector((store)=>{
 });
 
 useEffect(()=>{
-firstNameInputRef.current.value=storeObj.loginDetails.firstName;
-lastNameInputRef.current.value=storeObj.loginDetails.lastName;
-emailInputRef.current.value=storeObj.loginDetails.email;
-ageInputRef.current.value=storeObj.loginDetails.age;
-setProfilePicURL(`/${storeObj.loginDetails.profilePic}`)
+firstNameInputRef.current.value=storeObj.userReducer.loginDetails.firstName;
+lastNameInputRef.current.value=storeObj.userReducer.loginDetails.lastName;
+emailInputRef.current.value=storeObj.userReducer.loginDetails.email;
+ageInputRef.current.value=storeObj.userReducer.loginDetails.age;
+setProfilePicURL(`/${storeObj.userReducer.loginDetails.profilePic}`)
 },[]);
 
 let sendUpdatedDataToServerFormData=async()=>{
